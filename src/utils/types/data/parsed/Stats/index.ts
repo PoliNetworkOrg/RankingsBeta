@@ -3,17 +3,16 @@ import School from "../../School";
 import CourseStats from "./CourseStats";
 
 type StatsByYear = {
-  lastUpdate: string;
-  stats: StatsBySchoolMap;
+  numStudents: number;
+  schools: StatsBySchoolMap;
 };
 
 // key = school
-type StatsBySchoolMap = CustomMap<
-  School,
-  {
-    numStudents: number;
-    list: CourseStats[];
-  }
->;
+export type StatsBySchoolMap = CustomMap<School, SchoolStats>;
+
+export type SchoolStats = {
+  numStudents: number;
+  list: CourseStats[];
+};
 
 export default StatsByYear;
